@@ -1,4 +1,4 @@
-package com.example.demoDataAcess;
+package com.example.demoDataAcess.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -1,5 +1,7 @@
-package com.example.demoDataAcess;
+package com.example.demoDataAcess.controller;
 
+import com.example.demoDataAcess.Dao.PersonRepository;
+import com.example.demoDataAcess.entity.Person;
 import com.example.demoDataAcess.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/person")
