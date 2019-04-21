@@ -2,7 +2,9 @@ package com.example.demoDataAcess.controller;
 
 import com.example.demoDataAcess.Dao.PersonRepository;
 import com.example.demoDataAcess.entity.Person;
+import com.example.demoDataAcess.service.IPersonService;
 import com.example.demoDataAcess.service.UserServiceImpl;
+import com.example.demoDataAcess.service.base.IPersonBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +22,10 @@ public class PersonController {
 
     @Autowired
     UserServiceImpl userService;
+//    @Autowired
+//    private IPersonBaseService personBaseService;
+    @Autowired
+    private IPersonService personService;
 
     public PersonController(PersonRepository personRepository) {
         this.personRepository = personRepository;
@@ -62,6 +68,11 @@ public class PersonController {
     }
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String update(Integer id,String newpass){
+
+        Person person = personRepository.findById(id).orElse(null);
+        Person person1 = personRepository.findPersonById(id);
+//        Person person2 = personBaseService.findById(id);
+        Person person3 = personService.queryById(id);
         Person p = personRepository.getOne(id);
         p.setPassword(newpass);
         personRepository.save(p);
